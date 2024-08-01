@@ -2,6 +2,7 @@ import os
 import json
 import paramiko
 import requests
+import time
 
 
 # 从环境变量中获取 Telegram Bot Token 和 Chat ID
@@ -19,12 +20,12 @@ def ssh_connect(host, username, password):
         transport = paramiko.Transport((host, 22))
         transport.connect(username=username, password=password)
         ssh_status = "SSH连接成功"
-        print(f"SSH连接成功。")
+        print(f"{username}SSH连接成功。")
         message = f'Serv00 SSH自动登录:账号 {username} SSH连接成功！'
         send_telegram_message(message)
     except Exception as e:
         ssh_status = f"SSH连接失败，错误信息: {e}"
-        print(f"SSH连接失败: {e}")
+        print(f"{username}SSH连接失败: {e}")
         message = f'Serv00 SSH自动登录:账号 {username} SSH连接失败，错误信息: {e}'
         send_telegram_message(message)
     finally:
@@ -54,3 +55,4 @@ def send_telegram_message(message):
 # 循环执行任务
 for account in accounts:
     ssh_connect(account['host'], account['username'], account['password'])
+    time.sleep(3))
