@@ -55,4 +55,4 @@ def send_telegram_message(message):
 # 循环执行任务
 for account in accounts:
     ssh_connect(account['host'], account['username'], account['password'])
-    time.sleep(3))
+    time.sleep(3)
