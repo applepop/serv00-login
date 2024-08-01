@@ -3,6 +3,11 @@ import json
 import paramiko
 import requests
 
+
+# 从环境变量中获取 Telegram Bot Token 和 Chat ID
+TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+
 # 从环境变量中读取 ACCOUNTS_JSON
 accounts_json = os.getenv('ACCOUNTS')
 accounts = json.loads(accounts_json)
