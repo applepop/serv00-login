@@ -26,5 +26,7 @@ jobs:
 
       - name: Run SSH connection script
         env:
-          ACCOUNTS: ${{ secrets.ACCOUNTS_JSON }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ACCOUNTS: ${{ secrets.ACCOUNTS }}
         run: python ssh.py
